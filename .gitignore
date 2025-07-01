@@ -1,0 +1,5 @@
+main/laravel_app/bootstrap/*
+main/laravel_app/storage/*
+main/laravel_app/vendor/*
+main/laravel_app/node_modules/*
+main/laravel_app/tests/*
