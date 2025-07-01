@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: php/dockerfile
+    container_name: laravel_app
+    volumes:
+      - ./main:/var/www/html
+    ports:
+      - "8000:8000"
+    working_dir: /var/www/html/laravel_app
+    entrypoint: php artisan serve --host=0.0.0.0 --port=8000
+    networks:
+      - laravel
+
+networks:
+  laravel:

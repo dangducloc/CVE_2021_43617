@@ -1,0 +1,160 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f0f2f5;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #1f2937;
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    text-align: center;
+    color: #6b7280;
+    font-style: italic;
+    margin-bottom: 2rem;
+}
+
+form {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.drop-zone {
+    border: 2px dashed #60a5fa;
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    color: #3b82f6;
+    background-color: #f0f9ff;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    margin-bottom: 1.25rem;
+    position: relative;
+}
+
+.drop-zone.dragover {
+    background-color: #dbeafe;
+    border-color: #2563eb;
+}
+
+.drop-zone p {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.preview-container {
+    margin-top: 1rem;
+    max-height: 200px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.preview-container img {
+    max-width: 100%;
+    max-height: 200px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+button {
+    background-color: #3b82f6;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: #2563eb;
+}
+
+button:disabled {
+    background-color: #93c5fd;
+    cursor: not-allowed;
+}
+
+.success,
+.error {
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.success {
+    background: #d1fae5;
+    border: 1px solid #10b981;
+    color: #065f46;
+}
+
+.error {
+    background: #fee2e2;
+    border: 1px solid #ef4444;
+    color: #991b1b;
+}
+
+.loading::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+    margin-left: 8px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

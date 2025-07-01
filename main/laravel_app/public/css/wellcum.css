@@ -1,0 +1,83 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 2rem;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.quote {
+    text-align: center;
+    font-style: italic;
+    color: #6b7280;
+    margin-bottom: 2rem;
+}
+
+.masonry {
+    column-count: 4;
+    column-gap: 1.5rem;
+}
+
+@media (max-width: 1200px) {
+    .masonry { column-count: 3; }
+}
+
+@media (max-width: 768px) {
+    .masonry { column-count: 2; }
+}
+
+@media (max-width: 480px) {
+    .masonry { column-count: 1; }
+}
+
+.meme-card {
+    display: inline-block;
+    background: #fff;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+    width: 100%;
+    transition: transform 0.2s ease;
+}
+
+.meme-card:hover {
+    transform: translateY(-3px);
+}
+
+.meme-card img {
+    width: 100%;
+    display: block;
+    border-bottom: 1px solid #eee;
+}
+
+.meme-content {
+    padding: 0.75rem 1rem;
+    text-align: center;
+}
+
+.meme-title {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.meme-link {
+    display: inline-block;
+    font-size: 0.9rem;
+    color: #3b82f6;
+    text-decoration: none;
+}
+
+.meme-link:hover {
+    color: #1e40af;
+}
