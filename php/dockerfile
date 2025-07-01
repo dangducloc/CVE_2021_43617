@@ -17,8 +17,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 COPY --from=composer:2.6 /usr/bin/composer /usr/bin/composer
 RUN composer config --global process-timeout 1200
 # Set working directory
-WORKDIR /var/www/html
-# Expose port 9000 for PHP-FPM
+WORKDIR /var/www/html/laravel_app
 EXPOSE 9000
 
 # Start PHP-FPM server
