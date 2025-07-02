@@ -1,4 +1,7 @@
-FROM php:8.0-fpm
+FROM php:8.0-apache
+
+# Enable required Apache mods
+RUN a2enmod rewrite
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -18,7 +21,9 @@ COPY --from=composer:2.6 /usr/bin/composer /usr/bin/composer
 RUN composer config --global process-timeout 1200
 # Set working directory
 WORKDIR /var/www/html/laravel_app
-EXPOSE 9000
 
-# Start PHP-FPM server
-CMD ["php-fpm"]
+# Expose HTTP port
+EXPOSE 80
+
+# Start Apache in foreground
+CMD ["apache2-foreground"]

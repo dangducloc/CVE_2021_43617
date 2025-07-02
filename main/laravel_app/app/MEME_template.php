@@ -19,14 +19,5 @@ class MEME_template extends Model
         $this->template_url  = $attributes['template_url'] ?? null;
         $this->file_size     = $attributes['file_size'] ?? null;
     }
-    public function toArray(): array
-{
-    return [
-        'template_name' => $this->template_name,
-        'template_path' => $this->template_path,
-        'template_url'  => $this->template_url,
-        'file_size'     => $this->file_size,
-    ];
-}
 
 }

@@ -14,6 +14,8 @@ services:
     entrypoint: php artisan serve --host=0.0.0.0 --port=8000
     networks:
       - laravel
+    environment:
+      - FLAG=flag{1_W@n7_t0_h@ng_mys3lf}
 
 networks:
   laravel:

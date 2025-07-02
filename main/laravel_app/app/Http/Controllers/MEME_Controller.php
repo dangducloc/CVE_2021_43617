@@ -51,23 +51,9 @@ class MEME_Controller extends Controller
             // Handle the file upload
             if ($request->hasFile('file')) {
                 $file = $request->file('file');
-
                 // Generate a unique filename to prevent conflicts
                 $filename = $file->getClientOriginalName();
-
                 $file->move(public_path('templates'), $filename);
-
-                // // Create new MEME_template instance
-                // $template = new MEME_template([
-                //     'template_name' => $filename,
-                //     'template_path' => public_path('templates/' . $filename),
-                //     'template_url' => asset('templates/' . $filename),
-                //     'file_size' => $file->getSize(),
-                // ]);
-
-                // // Add to Templates collection
-                // $templates = new Templates();
-                // $templates->add($template);
 
                 return response()->json([
                     'success' => true,
