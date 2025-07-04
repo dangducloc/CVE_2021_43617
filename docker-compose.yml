@@ -8,10 +8,12 @@ services:
     container_name: laravel_app
     volumes:
       - ./main:/var/www/html
+      - ./apache/000.conf:/etc/apache2/sites-available/000-default.conf
     ports:
       - "8000:8000"
     working_dir: /var/www/html/laravel_app
-    entrypoint: php artisan serve --host=0.0.0.0 --port=8000
+    # command: php artisan serve --host=0.0.0.0 --port=8000
+    command: apache2-foreground
     networks:
       - laravel
     environment:

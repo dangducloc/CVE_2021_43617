@@ -1,9 +1,18 @@
 FROM php:8.0-apache
 
-# Enable required Apache mods
+ENV APACHE_LOG_DIR /var/log/apache2
+
+
+ENV APACHE_DOCUMENT_ROOT /var/www/html/laravel_app/public
+
+
 RUN a2enmod rewrite
 
-# Install system dependencies
+RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' \
+    /etc/apache2/sites-available/000-default.conf \
+ && sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}/../!g' \
+    /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
+
 RUN apt-get update && apt-get install -y --no-install-recommends \
     libpng-dev \
     libonig-dev \
@@ -16,14 +25,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && docker-php-ext-configure zip \
     && docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip
 
-# Install Composer
 COPY --from=composer:2.6 /usr/bin/composer /usr/bin/composer
 RUN composer config --global process-timeout 1200
-# Set working directory
+
 WORKDIR /var/www/html/laravel_app
 
-# Expose HTTP port
-EXPOSE 80
+EXPOSE 80 
 
-# Start Apache in foreground
 CMD ["apache2-foreground"]
