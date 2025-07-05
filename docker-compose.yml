@@ -13,7 +13,7 @@ services:
       - "8000:8000"
     working_dir: /var/www/html/laravel_app
     # command: php artisan serve --host=0.0.0.0 --port=8000
-    command: apache2-foreground
+    entrypoint: ["apachectl", "-D", "FOREGROUND"]
     networks:
       - laravel
     environment:
