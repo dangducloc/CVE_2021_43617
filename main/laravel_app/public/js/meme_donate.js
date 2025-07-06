@@ -9,7 +9,7 @@ const form = document.getElementById('meme-form');
 
 // File validation
 const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
-const ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/gif'];
+const ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
 
 function showMessage(text, type) {
     message.className = type;
